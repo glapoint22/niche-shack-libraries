@@ -1,0 +1,97 @@
+.primary-button {
+    height: 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    padding: 1px 18px 0;
+    background: linear-gradient(#fedb7d, #c28f06);
+    outline: none;
+    font-weight: bold;
+
+    &:hover {
+        background: linear-gradient(lighten(#fedb7d, 6), lighten(#c28f06, 6));
+    }
+
+    &:active {
+        background: linear-gradient(lighten(#fedb7d, 10), lighten(#c28f06, 10));
+    }
+
+    &:disabled {
+        cursor: default;
+        background: linear-gradient(rgba(255, 221, 127, 0.22), rgba(192, 141, 2, 0.22));
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    &:focus-visible {
+        outline: 1px solid #000000;
+        outline-offset: -1px;
+        box-shadow: 0 0 0 1px #ffebbb;
+    }
+}
+
+.secondary-button {
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #4e4e4e;
+    cursor: pointer;
+    background: #353535;
+    padding: 0 18px;
+    color: #c0c0c0;
+    outline: none;
+
+    &:hover:not(:disabled):not(:active) {
+        background: lighten(#353535, 4);
+        border-color: lighten(#4e4e4e, 7);
+        color: lighten(#c0c0c0, 20);
+    }
+
+    &:active {
+        background: lighten(#353535, 6);
+        border-color: lighten(#4e4e4e, 9);
+        color: lighten(#c0c0c0, 22);
+    }
+    
+    &:disabled {
+        background: #3535356c;
+        border-color: #4e4e4e5e;
+        color: #c0c0c059;
+        cursor: default;
+    }
+
+    &:focus-visible {
+        border-color: #a08534;
+    }
+}
+
+.tertiary-button {
+    $background-color: #680059;
+    $border-color: #8a0077;
+    $font-color: #dadada;
+    cursor: pointer;
+    border-radius: 4px;
+    
+    background: $background-color;
+    border: 1px solid $border-color;
+    color: $font-color;
+
+    &:hover:not(:disabled) {
+        background: lighten($background-color, 6);
+        border-color: lighten($border-color, 6);
+        color: lighten($font-color, 6);
+    }
+
+    &:disabled {
+        opacity: 0.3;
+    }
+
+    &:active:not(:disabled) {
+        background: lighten($background-color, 10);
+        border-color: lighten($border-color, 10);
+        color: lighten($font-color, 10);
+    }
+
+    &:focus-visible {
+        outline: 1px solid rgb(185, 119, 185);
+        outline-offset: 2px;
+    }
+}

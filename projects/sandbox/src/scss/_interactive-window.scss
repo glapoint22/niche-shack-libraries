@@ -1,0 +1,53 @@
+.interactive-window {
+    position: fixed;
+}
+
+
+.fa-window-maximize,
+.fa-window-restore {
+    font-size: 11px;
+}
+
+
+.selected-window {
+    box-shadow: 5px 5px 7px 2px rgba(0, 0, 0, 0.25);
+}
+
+.selected-window-border {
+    border: 1px solid lighten($window-border-color, $selected-window-border-lighten-value);
+}
+
+
+.selected-window-title-bar-color {
+    background: linear-gradient(lighten(map-get($window-title-bar-gradient-map, light), $selected-window-title-bar-color-lighten-value), lighten(map-get($window-title-bar-gradient-map, dark), $selected-window-title-bar-color-lighten-value));
+}
+
+
+.selected-window-title-bar-font-color {
+    color: lighten($window-title-bar-font-color, $selected-window-title-bar-font-color-lighten-value);
+}
+
+.maximize-restore-transition {
+    transition: all 0.2s ease-in-out !important;
+}
+
+.maximized {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+
+    .window-title-bar {
+        border-radius: 0;
+    }
+}
+
+.content-container {
+    overflow: hidden;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}

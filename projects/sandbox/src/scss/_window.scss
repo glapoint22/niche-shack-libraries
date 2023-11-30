@@ -1,0 +1,57 @@
+.window {
+    border-radius: 7px;
+    box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+.window-title-bar {
+    display: flex;
+    height: 30px;
+    font-size: 13px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    user-select: none;
+}
+
+
+.window-title-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.window-bar-buttons {
+    display: flex;
+}
+
+.window-bar-button {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding-top: 5px;
+
+    &:hover {
+        color: #dfdfdf;
+        background: $window-title-bar-button-hover-color;
+    }
+}
+
+.window-background-color {
+    background: $window-background-color;
+}
+
+.window-border-color {
+    border: 1px solid $window-border-color;
+}
+
+.window-title-bar-color {
+    background: linear-gradient(map-get($window-title-bar-gradient-map, light), map-get($window-title-bar-gradient-map, dark));
+}
+
+.window-title-bar-font-color {
+    color: $window-title-bar-font-color;
+}

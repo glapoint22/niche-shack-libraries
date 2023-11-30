@@ -1,0 +1,71 @@
+<!-- Window -->
+<div class="window interactive-window window-background-color window-border-color hide"
+    [ngClass]="{'show': show, 'selected-window selected-window-border': isSelected, 'maximize-restore-transition': maximizeRestoreTransition, 'maximized': maximized}"
+    [style.left.px]="rect.x" [style.top.px]="rect.y" [style.width.px]="rect.width" [style.height.px]="rect.height" [style.zIndex]="zIndex"
+    (transitionend)="onTransitionEnd()" (mousedown)="setSelected(true); onSelected.emit(this)">
+
+    <!-- Title Bar -->
+    <div class="window-title-bar window-title-bar-color window-title-bar-font-color"
+        [ngClass]="{'selected-window-title-bar-color selected-window-title-bar-font-color': isSelected}" (dblclick)="onMaximizeRestoreClick()"
+        (mousedown)="onMousedown()">
+
+        <!-- Title -->
+        <div class="window-title-text" [ngClass]="{'selected-window-title-bar-font-color': isSelected}">{{title}}</div>
+
+        <!-- Window Bar Buttons -->
+        <div class="window-bar-buttons" (mousedown)="onWindowBarButtonMousedown()">
+
+            <!-- Maximize/Restore -->
+            <div class="window-bar-button" (click)="onMaximizeRestoreClick()"
+                [title]="maximized ? 'Restore' : 'Maximize'">
+                <i *ngIf="!maximized" class="fa fa-window-maximize" aria-hidden="true"></i>
+                <i *ngIf="maximized" class="fa fa-window-restore" aria-hidden="true"></i>
+            </div>
+
+
+            <!-- Close -->
+            <div class="window-bar-button" (click)="close()" title="Close">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <ng-template #contentContainer></ng-template>
+    </div>
+
+
+
+    <ng-container *ngIf="!maximized">
+        <!-- Top Handle -->
+        <div class="top-handle" (mousedown)="onTopHandleMousedown()"></div>
+
+
+        <!-- Right Handle -->
+        <div class="right-handle" (mousedown)="onRightHandleMousedown()"></div>
+
+
+        <!-- Bottom Handle -->
+        <div class="bottom-handle" (mousedown)="onBottomHandleMousedown()"></div>
+
+
+        <!-- Left Handle -->
+        <div class="left-handle" (mousedown)="onLeftHandleMousedown()"></div>
+
+
+        <!-- Top Left Handle -->
+        <div class="top-left-handle" (mousedown)="onTopLeftHandleMousedown()"></div>
+
+
+        <!-- Top Right Handle -->
+        <div class="top-right-handle" (mousedown)="onTopRightHandleMousedown()"></div>
+
+
+        <!-- Bottom Right Handle -->
+        <div class="bottom-right-handle" (mousedown)="onBottomRightHandleMousedown()"></div>
+
+
+        <!-- Bottom Left Handle -->
+        <div class="bottom-left-handle" (mousedown)="onBottomLeftHandleMousedown()"></div>
+    </ng-container>
+</div>

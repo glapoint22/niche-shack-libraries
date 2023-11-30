@@ -1,0 +1,62 @@
+<!-- Menu Base -->
+<div #menuBaseElement class="menu-base hide" [ngClass]="{'show': show}" [style.left.px]="rect.x" [style.top.px]="rect.y"
+    [style.zIndex]="zIndex" (mousedown)="$event.stopPropagation()" (click)="$event.stopPropagation()"
+    (contextmenu)="$event.preventDefault(); $event.stopPropagation()">
+
+    <!-- Main Menu -->
+    <ng-container *ngTemplateOutlet="menuTemplate; context: { menu: menu, isSubmenu: false }"></ng-container>
+</div>
+
+
+<!-- Menu Template -->
+<ng-template #menuTemplate let-menu="menu" let-isSubmenu="isSubmenu" let-parentMenu="parentMenu"
+    let-parentMenuElement="parentMenuElement">
+
+    <!-- Menu -->
+    <div #menuElement class="menu" [style.zIndex]="isSubmenu ? zIndex: null"
+        [style.left.px]="isSubmenu ? getSubmenuPosition(menu, parentMenuElement): null">
+
+
+        <!-- Menu Items -->
+        <ng-container *ngFor="let menuItem of menu.menuItems">
+
+            <!-- Item -->
+            <div *ngIf="!menuItem.divider && !menuItem.hidden" #menuItemElement class="menu-item"
+                [ngClass]="{'disabled-menu-item': menuItem.disabled}"
+                (mouseover)="onMenuItemMouseOver(menuItem, menu, menuItemElement)" (click)="onItemClick(menuItem)">
+
+                <div class="menu-item-content"
+                    [ngClass]="{'submenu-item': menuItem.submenu, 'selected': menu.selectedMenuItem === menuItem && !menuItem.disabled}">
+
+                    <!-- Label -->
+                    <div>{{menuItem.label}}</div>
+
+                    <!-- Icon -->
+                    <i *ngIf="menuItem.icon" [class]="menuItem.icon.classNames + ' menu-item-icon'"
+                        [style.color]="menuItem.icon.color" aria-hidden="true"
+                        [ngClass]="{'disabled-icon': menuItem.disabled}"></i>
+
+                    <!-- Shortcut -->
+                    <div *ngIf="menuItem.shortcut" class="menu-item-content-padding">{{menuItem.shortcut}}</div>
+
+                    <!-- Submenu Chevron -->
+                    <i *ngIf="menuItem.submenu" class="fa fa-chevron-right menu-item-content-padding"
+                        aria-hidden="true"></i>
+                </div>
+
+                <!-- Submenu -->
+                <div *ngIf="menuItem.submenu?.show" class="submenu-container"
+                    (mouseover)="onSubmenuMouseOver(menuItem, menuItemElement, menu); $event.stopPropagation()">
+                    <ng-container
+                        *ngTemplateOutlet="menuTemplate; context: { menu: menuItem.submenu, isSubmenu: true, parentMenu: menu, parentMenuElement: menuElement }"></ng-container>
+                </div>
+            </div>
+
+
+            <!-- Divider -->
+            <div *ngIf="menuItem.divider" class="divider"></div>
+
+
+        </ng-container>
+    </div>
+</ng-template>

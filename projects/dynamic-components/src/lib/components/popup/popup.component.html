@@ -1,0 +1,12 @@
+<div #popup class="popup hide" [ngClass]="{'show': show}" [style.left.px]="rect.x" [style.top.px]="rect.y" [style.zIndex]="zIndex"
+    (transitionend)="onTransitionEnd()" (mousedown)="$event.stopPropagation()">
+
+    <ng-template #contentContainer></ng-template>
+
+    <div class="popup-arrow-container" [style.left.px]="arrowLeft" [style.top.px]="arrowTop"
+        [style.right.px]="arrowRight" [style.bottom.px]="arrowBottom"
+        [style.transform]="'rotate(' + arrowRotation + 'deg)'">
+        <div class="popup-arrow-Border"></div>
+        <div class="popup-arrow-background"></div>
+    </div>
+</div>

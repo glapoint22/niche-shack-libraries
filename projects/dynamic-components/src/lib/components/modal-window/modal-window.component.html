@@ -1,0 +1,25 @@
+<div class="modal-window" [style.zIndex]="zIndex">
+    <!-- Window -->
+    <div class="window window-background-color window-border-color hide" [ngClass]="{'show': show && !hidden}"
+        [style.pointerEvents]="hidden ? 'none': 'all'" (transitionend)="onTransitionEnd()"
+        (mousedown)="$event.stopPropagation()">
+
+        <!-- Title Bar -->
+        <div class="window-title-bar window-title-bar-color window-title-bar-font-color">
+
+            <!-- Title -->
+            <div class="window-title-text">{{title}}</div>
+
+            <!-- Window Bar Buttons -->
+            <div class="window-bar-buttons">
+
+                <!-- Close -->
+                <div class="window-bar-button" (click)="close()" title="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #contentContainer></ng-template>
+    </div>
+</div>

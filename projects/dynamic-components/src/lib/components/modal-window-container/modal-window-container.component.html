@@ -1,0 +1,5 @@
+<div class="modal-backdrop hide" [style.zIndex]="zLevel" [ngClass]="{'show': showBackdrop}"
+    [style.pointerEvents]="!showBackdrop ? 'none': 'all'" (transitionend)="onTransitionEnd()" (mouseup)="onMouseup()">
+
+    <ng-template #viewContainerRef></ng-template>
+</div>

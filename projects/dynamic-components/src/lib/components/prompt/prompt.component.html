@@ -1,0 +1,13 @@
+<div class="message" [innerHtml]="message"></div>
+
+<div class="button-container">
+    <button *ngIf="tertiaryButton" class="tertiary-button"
+        (click)="tertiaryButton.func ? tertiaryButton.func() : null; close()">{{tertiaryButton.name}}</button>
+
+    <div class="primary-secondary-button-container">
+        <button *ngIf="secondaryButton" class="secondary-button"
+            (click)="secondaryButton.func ? secondaryButton.func(): null; close()">{{secondaryButton.name}}</button>
+        <button *ngIf="primaryButton" class="primary-button"
+            (click)="primaryButton.func ? primaryButton.func(): null; close()">{{primaryButton.name}}</button>
+    </div>
+</div>

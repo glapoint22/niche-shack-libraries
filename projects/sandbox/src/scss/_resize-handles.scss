@@ -1,0 +1,73 @@
+%handle {
+    position: absolute;
+}
+
+%horizontal-handle {
+    @extend %handle;
+    height: 5px;
+    left: 4px;
+    right: 4px;
+    cursor: ns-resize;
+}
+
+%vertical-handle {
+    @extend %handle;
+    width: 5px;
+    top: 4px;
+    bottom: 4px;
+    cursor: ew-resize;
+}
+
+%corner-handle {
+    @extend %handle;
+    width: 7px;
+    height: 7px;
+}
+
+.top-handle {
+    @extend %horizontal-handle;
+    top: -3px;
+}
+
+.bottom-handle {
+    @extend %horizontal-handle;
+    bottom: -3px;
+}
+
+.left-handle {
+    @extend %vertical-handle;
+    left: -3px;
+}
+
+.right-handle {
+    @extend %vertical-handle;
+    right: -3px;
+}
+
+.top-left-handle {
+    @extend %corner-handle;
+    top: -3px;
+    left: -3px;
+    cursor: nw-resize;
+}
+
+.top-right-handle {
+    @extend %corner-handle;
+    top: -3px;
+    right: -3px;
+    cursor: ne-resize;
+}
+
+.bottom-right-handle {
+    @extend %corner-handle;
+    bottom: -3px;
+    right: -3px;
+    cursor: se-resize;
+}
+
+.bottom-left-handle {
+    @extend %corner-handle;
+    bottom: -3px;
+    left: -3px;
+    cursor: sw-resize;
+}

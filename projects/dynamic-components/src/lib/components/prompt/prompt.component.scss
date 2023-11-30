@@ -1,0 +1,22 @@
+.message {
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #c0c0c0;
+    user-select: none;
+}
+
+.button-container {
+    padding: 5px 10px;
+    display: flex;
+}
+
+.primary-secondary-button-container {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.primary-button {
+    margin-left: 10px;
+}
