@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ModalWindowContentComponent } from '../../models/modal-window-content-component';
 import { IPromptComponent } from '../../interfaces/i-prompt-component';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Button } from '../../models/button';
+import { PromptButton } from '../../models/prompt-button';
 import { PromptButtons } from '../../models/prompt-buttons';
 
 @Component({
@@ -16,9 +16,9 @@ import { PromptButtons } from '../../models/prompt-buttons';
 export class PromptComponent extends ModalWindowContentComponent implements IPromptComponent {
   private sanitizer: DomSanitizer = inject(DomSanitizer);
   protected message!: SafeHtml;
-  protected primaryButton!: Button;
-  protected secondaryButton?: Button;
-  protected tertiaryButton?: Button;
+  protected primaryButton!: PromptButton;
+  protected secondaryButton?: PromptButton;
+  protected tertiaryButton?: PromptButton;
 
   public init(message: string, buttons: PromptButtons): void {
     this.message = this.sanitizer.bypassSecurityTrustHtml(message);

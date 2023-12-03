@@ -14,7 +14,7 @@ export * from './lib/interfaces/i-window-component';
 export * from './lib/interfaces/menu-item-options';
 
 // Models
-export * from './lib/models/button';
+export * from './lib/models/prompt-button';
 export * from './lib/models/content-component';
 export * from './lib/models/content-host-component';
 export * from './lib/models/menu-item-icon';

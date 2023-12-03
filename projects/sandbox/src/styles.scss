@@ -1,10 +1,4 @@
 @import './scss/variables';
 @import './scss/reset';
-@import './scss/window';
-@import './scss/interactive-window';
-@import './scss/modal-window';
-@import './scss/visibility';
-@import './scss/resize-handles';
-@import './scss/popup';
-@import './scss/menu';
-@import './scss//buttons';
+@import './scss/buttons';
+@import 'dynamic-components/styles';

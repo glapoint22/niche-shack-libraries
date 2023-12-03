@@ -3,5 +3,6 @@
   "dest": "../../dist/dynamic-components",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": ["styles", "styles.scss"]
 }
