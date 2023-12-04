@@ -18,7 +18,8 @@ export class AppComponent {
     this.dynamicComponentService.setContainerRef(this.containerRef);
 
     this.dynamicComponentService.createPrompt('My Prompt', 'This is my message to all!', {
-      primaryButton: PromptButton.create('Ok', () => console.log('hello'))
+      primaryButton: PromptButton.create('Ok', () => console.log('Ok')),
+      secondaryButton: PromptButton.create('Cancel')
     });
   }
 }

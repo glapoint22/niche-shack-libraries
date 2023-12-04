@@ -16,7 +16,7 @@ import { PromptButtons } from '../../models/prompt-buttons';
 export class PromptComponent extends ModalWindowContentComponent implements IPromptComponent {
   private sanitizer: DomSanitizer = inject(DomSanitizer);
   protected message!: SafeHtml;
-  protected primaryButton!: PromptButton;
+  protected primaryButton?: PromptButton;
   protected secondaryButton?: PromptButton;
   protected tertiaryButton?: PromptButton;
 

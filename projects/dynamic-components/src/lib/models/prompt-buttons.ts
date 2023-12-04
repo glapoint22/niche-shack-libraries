@@ -7,7 +7,7 @@ export interface PromptButtons {
     /**
      * The primary button configuration.
      */
-    primaryButton: PromptButton;
+    primaryButton?: PromptButton;
     /**
      * An optional secondary button configuration.
      */

@@ -16,7 +16,6 @@ export * from './lib/interfaces/menu-item-options';
 // Models
 export * from './lib/models/prompt-button';
 export * from './lib/models/content-component';
-export * from './lib/models/content-host-component';
 export * from './lib/models/menu-item-icon';
 export * from './lib/models/menu-item-template';
 export * from './lib/models/modal-window-content-component';
